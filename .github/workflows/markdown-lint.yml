@@ -1,0 +1,19 @@
+name: Markdown Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Proselint
+        uses: amperser/proselint-github-action@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
